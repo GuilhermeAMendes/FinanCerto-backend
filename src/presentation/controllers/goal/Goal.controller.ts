@@ -1,4 +1,4 @@
-import { CreateGoalUseCase } from "@/application/use-cases/auth/CreateGoal.usecase.js";
+import { CreateGoalUseCase } from "@/application/use-cases/goal/CreateGoal.usecase.js";
 import { CategoryRepository } from "@/infra/repository/prisma/category.repository.js";
 import { GoalRepository } from "@/infra/repository/prisma/goal.repository.js";
 import { Request, Response } from "express";

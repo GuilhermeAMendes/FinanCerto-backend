@@ -1,4 +1,4 @@
-import { CreateCategoryUseCase } from "@/application/use-cases/auth/CreateCategory.usecase.js";
+import { CreateCategoryUseCase } from "@/application/use-cases/category/CreateCategory.usecase.js";
 import { CategoryRepository } from "@/infra/repository/prisma/category.repository.js";
 import { Request, Response } from "express";
 

@@ -1,3 +1,4 @@
+import { CategoryGateway } from "@/domain/gateway/category.gateway.js";
 import { GoalGateway } from "@/domain/gateway/goal.gateway.js";
 
 export class CreateGoalUseCase {
