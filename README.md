@@ -54,7 +54,8 @@ Crie um arquivo .env na raiz do projeto baseado no .env.example (ou adicione as 
 ```bash
 PORT="3000"
 DATABASE_URL="file:./dev.db"
-SECRET="sua_chave_jwt_secreta_aqui"
+SECRET="secret"
+KEY="key"
 ```
 
 ### 4. Configurando o Banco de Dados
@@ -66,6 +67,9 @@ npx prisma generate
 
 # Roda as migrações para criar o banco de dados
 npx prisma migrate dev --name init
+
+# Banco de dados com interface gráfica
+npx prisma studio
 ```
 
 ### 5. Rodando a Aplicação
