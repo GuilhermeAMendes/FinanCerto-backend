@@ -81,5 +81,3 @@ Nota: O servidor estará rodando em http://localhost:3000.
 Com o servidor rodando, acesse a documentação interativa das rotas através do link:
 
 👉 Acessar Documentação Swagger http://localhost:3000/docs
-
-As respostas de consulta e cadastro incluem `spent`, `remaining` e `alert`. O campo `alert` vale `within_limit`, `reached` ou `exceeded`, conforme as despesas registradas na categoria. O cálculo é feito quando a rota é chamada; ele não envia notificação em tempo real. O modelo `Goal` já existe no schema Prisma, então esta implementação não exige uma alteração de schema ou uma nova migração.
