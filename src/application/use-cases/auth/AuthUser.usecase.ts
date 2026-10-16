@@ -7,7 +7,7 @@ export class AuthUserUseCase {
 
   async execute(email: string, passwordString: string) {
     const user = await this.userRepository.findByEmail(email);
-    if (!user) throw new Error("Credenciais inválidas.");
+    if (!user || !user.password) throw new Error("Credenciais inválidas.");
 
     const passwordMatch = await Bcrypt.compare(passwordString, user.password);
     if (!passwordMatch) throw new Error("Credenciais inválidas.");

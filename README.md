@@ -54,8 +54,7 @@ Crie um arquivo .env na raiz do projeto baseado no .env.example (ou adicione as 
 ```bash
 PORT="3000"
 DATABASE_URL="file:./dev.db"
-SECRET="secret"
-KEY="key"
+SECRET="sua_chave_jwt_secreta_aqui"
 ```
 
 ### 4. Configurando o Banco de Dados
@@ -67,9 +66,6 @@ npx prisma generate
 
 # Roda as migrações para criar o banco de dados
 npx prisma migrate dev --name init
-
-# Banco de dados com interface gráfica
-npx prisma studio
 ```
 
 ### 5. Rodando a Aplicação
@@ -84,3 +80,15 @@ Nota: O servidor estará rodando em http://localhost:3000.
 Com o servidor rodando, acesse a documentação interativa das rotas através do link:
 
 👉 Acessar Documentação Swagger http://localhost:3000/docs
+
+## Metas e limites de gastos por categoria (RF10)
+
+As rotas abaixo exigem o token JWT retornado por `POST /auth/login`. Envie-o no cabeçalho `Authorization: Bearer <token>`.
+
+- `POST /goals`: cria um limite. Corpo: `{ "categoryId": "id-da-categoria", "amount": 500 }`.
+- `GET /goals`: lista os limites do usuário autenticado.
+- `GET /goals/:id`: consulta um limite.
+- `PUT /goals/:id`: atualiza `amount`, `categoryId` ou ambos.
+- `DELETE /goals/:id`: exclui um limite.
+
+As respostas de consulta e cadastro incluem `spent`, `remaining` e `alert`. O campo `alert` vale `within_limit`, `reached` ou `exceeded`, conforme as despesas registradas na categoria. O cálculo é feito quando a rota é chamada; ele não envia notificação em tempo real. O modelo `Goal` já existe no schema Prisma, então esta implementação não exige uma alteração de schema ou uma nova migração.
